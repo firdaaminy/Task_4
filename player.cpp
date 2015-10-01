@@ -37,3 +37,16 @@ void playNext(address &P){
     playSong(P);
 }
 
+void playRepeat(List &L, int n)
+{
+    address P;
+    for (int i; i=n; i++)
+    {
+        while (Next(P)!=First(L))
+        {
+            playSong(P);
+            P = Next(P);
+        }
+        playSong(P);
+    }
+}

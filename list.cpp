@@ -61,6 +61,9 @@ void deleteFirst(List &L, address &P)
     P = First(L);
     First(L) = Next(P);
     Next(P) = NULL;
+    Prev(P) = NULL;
+    Prev(First(L)) = Last(L);
+    Next(Last(L)) = First(L);
 }
 
 void deleteLast(List &L, address &P)
@@ -71,13 +74,12 @@ void deleteLast(List &L, address &P)
     }
     else
     {
-        address Q = First(L);
-        while(Next(Next(Q)) != NULL)
-        {
-            Q = Next(Q);
-        }
-        P = Next(Q);
-        Next(Q) = NULL;
+        P = Last(L);
+        Last(L) = Prev(Last(L));
+        Prev(P) = NULL;
+        Next(P) = NULL;
+        Prev(First(L)) = Last(L);
+        Next(Last(L)) = First(L);
     }
 }
 

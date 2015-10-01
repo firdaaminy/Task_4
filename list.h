@@ -5,7 +5,9 @@
 #include <windows.h>
 
 #define First(L) L.first
+#define Last(L) L.last
 #define Next(P) P->next
+#define Prev(P) P->prev
 #define Info(P) P->info
 
 using namespace std;
@@ -39,7 +41,7 @@ void insertLast(List &, address );
 void insertAfter(List &, address , address );
 
 void deleteFirst(List &, address &);
-void deleteLast(List &, address &);
+void deleteLast(List &, address p&, address prev&);
 void deleteAfter(List &, address &, address &);
 
 address findElm(List, infotype );
